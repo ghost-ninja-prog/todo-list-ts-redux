@@ -1,0 +1,11 @@
+.center {
+    margin: 0 auto;
+    max-width: max-content;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: 700;
+    text-decoration: underline;
+    color: red;
+}
