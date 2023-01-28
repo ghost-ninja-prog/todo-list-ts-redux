@@ -1,10 +1,13 @@
 import React from 'react';
-import './styles/style.css';
+import TodoList from './components/TodoList';
+import { store } from './store/store';
+
+
 
 function App() {
   return (
     <div className='center'>
-      <h1>Hello TypeScript!!</h1>
+      <TodoList todos={store} />
     </div>
   );
 }
