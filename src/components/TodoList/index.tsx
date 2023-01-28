@@ -19,7 +19,7 @@ const TodoList = ({ todos }: TodoListProps) => {
     return (
         <div className={styles.center}>
             {todos.map(todo => (
-                <TodoItem id={todo.id} title={todo.title} completed={todo.completed} />
+                <TodoItem key={todo.id} id={todo.id} title={todo.title} completed={todo.completed} />
             )
             )}
         </div>
