@@ -1,15 +1,15 @@
-import style from "./index.module.css"
+import { ITodo } from "../../models/models"
+import classes from "./index.module.css"
 
-interface TodoProps {
-    id: number;
-    title: string;
-    completed: boolean
+
+interface TodoItemProps {
+    todo: ITodo
 }
 
-const TodoItem = ({ id, title, completed }: TodoProps) => {
-    return(
-        <p className={style.item}>{title}</p>
+export const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
+    return (
+        <div className={classes.item}>
+            {todo.title}
+        </div>
     )
 }
-
-export default TodoItem

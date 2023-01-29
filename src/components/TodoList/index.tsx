@@ -1,29 +1,24 @@
-import TodoItem from '../TodoItem';
-import styles from './index.module.css'
+import classes from "./index.module.css"
+import { TodoItem } from "../TodoItem"
+import { ITodo } from "../../models/models"
 
-type TodoListProps = {
-    todos: Array<Todo>
+
+
+interface TodoListProps {
+    todos: ITodo[]
 }
 
-type Todo = {
-    id: number;
-    title: string;
-    completed: boolean;
-}
-
-
-
-
-
-const TodoList = ({ todos }: TodoListProps) => {
+export const TodoList: React.FC<TodoListProps> = ({ todos }) => {
     return (
-        <div className={styles.center}>
-            {todos.map(todo => (
-                <TodoItem key={todo.id} id={todo.id} title={todo.title} completed={todo.completed} />
-            )
-            )}
+        <div className={classes.center}>
+            <h3>TodoList</h3>
+            {
+                todos.map((todo) => {
+                    return (
+                        <TodoItem key={todo.id} todo={todo} />
+                    )
+                })
+            }
         </div>
     )
 }
-
-export default TodoList
