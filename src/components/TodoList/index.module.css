@@ -1,8 +1,20 @@
-h3 {
-    color: green;
-    font-size: 48px;
+.todo__title {
+    font-size: 42px;
+    line-height: 42px;
+    margin: 0;
 }
-.center {
-    margin: 0 auto;
+.todo__body {
+    text-align: center;
+    padding: 15px;
+    min-width: 600px;
     max-width: max-content;
+    margin: 30px auto 0;
+    border-radius: 12px;
+    box-shadow: 0px 0px 21px 10px rgba(0, 0, 0, .3);
+    transition: box-shadow .25s ease-out;
+    background-color: #fff;
+}
+
+.todo__body:hover {
+    box-shadow: 0px 10px 25px 18px rgba(0, 0, 0, .4);
 }

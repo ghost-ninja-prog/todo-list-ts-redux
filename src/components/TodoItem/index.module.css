@@ -1,5 +1,46 @@
 .item {
     font-size: 26px;
-    color: brown;
-    text-decoration: underline;
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkbox {
+    width: 30px;
+    height: 30px;
+}
+
+
+.btn__edit {
+    width: 30px;
+    height: 30px;
+    background: url('./img/edit.svg') center/cover;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color, scale .25s;
+}
+
+.btn__edit:hover {
+    background-color: rgba(204, 203, 201, 0.651);
+    border: 1px solid rgba(0, 0, 0, .1);
+    scale: 120%;
+}
+
+.btn__remove {
+    margin-left: 10px;
+    width: 30px;
+    height: 30px;
+    background: url('./img/trash.svg') center/cover;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color, scale .25s;
+}
+
+.btn__remove:hover {
+    background-color: rgba(204, 203, 201, 0.651);
+    border: 1px solid rgba(0, 0, 0, .1);
+    scale: 120%;
 }

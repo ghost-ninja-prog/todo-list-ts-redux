@@ -8,8 +8,13 @@ interface TodoItemProps {
 
 export const TodoItem: React.FC<TodoItemProps> = ({ todo }) => {
     return (
-        <div className={classes.item}>
-            {todo.title}
-        </div>
+        <li className={classes.item}>
+            <input className={classes.checkbox} type="checkbox" />
+            <span className={classes.title}>{todo.title}</span>
+            <div>
+                <button className={classes.btn__edit}></button>
+                <button className={classes.btn__remove}></button>
+            </div>
+        </li>
     )
 }
