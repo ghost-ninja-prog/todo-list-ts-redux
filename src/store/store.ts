@@ -1,4 +1,4 @@
-const store = [
+export const store = [
     {
         id: 1,
         title: "Delo 1",
@@ -14,5 +14,3 @@ const store = [
         completed: false
     },
 ]
-
-export {store}
