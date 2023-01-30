@@ -16,12 +16,20 @@ export const TodoPlus: React.FC<ITodoPlusProps> = ({ addTodo }) => {
         setValue('')
     }
 
+    const onKeyDownInput = (event: any) => {
+        if(event.code === "Enter") {
+            addTodo(value)
+            setValue('')
+        }
+    }
+
     return(
         <div className={classes.inputPlusItem}>
             <input className={classes.inputPlus}
                 type="text"
                 value={value}
                 onChange={(e)=> setValue(e.target.value)}
+                onKeyDown={onKeyDownInput}
             />
             <button className={classes.btnPlus} onClick={onClickHandler}></button>
         </div>

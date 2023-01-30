@@ -17,7 +17,7 @@ export const TodoList: React.FC = () => {
             completed: false
 
         }
-        setTodos([...todos, todo])
+        setTodos([todo,...todos])
     }
 
     return (

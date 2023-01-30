@@ -9,6 +9,26 @@
     height: 30px;
 }
 
+.title {
+    position: relative;
+    overflow: hidden;
+}
+
+.title:before {
+    content: '';
+    position:absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #000;
+    top: calc(50% - 1px);
+    transform: translateX(-200px);
+    transition: transform .25s;
+}
+
+.checkbox:checked + .title:before {
+    transform: translateX(0);
+}
+
 
 .btn__edit {
     width: 30px;
