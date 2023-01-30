@@ -10,14 +10,31 @@
     width: 100%;
     height: 30px;
     margin: 0;
-    padding: 0;
+    padding: 0 20px;
     border: 1px solid rgba(0, 0, 0, .1);
+    border-top-left-radius: 14px;
+    border-bottom-left-radius: 14px;
+    font-size: 22px;
+    color: rgba(0, 0, 0, .6);
+}
+
+.inputPlus:focus-visible {
+    outline: none;
 }
 
 .btnPlus {
-    width: 40px;
+    width: 60px;
     height: 30px;
     box-sizing: border-box;
     border: 1px solid rgba(0, 0, 0, .1);
-    background: url('./img/plus.svg') center/contain;
+    background: url('./img/plus.svg') center/contain no-repeat;
+    cursor: pointer;
+    border-top-right-radius: 14px;
+    border-bottom-right-radius: 14px;
+    transition: box-shadow .25s, transform .25s;
+}
+
+.btnPlus:hover {
+    box-shadow: 0 0 20px 10px rgba(0, 0, 0, .1);
+    transform: translateY(-2px);
 }
