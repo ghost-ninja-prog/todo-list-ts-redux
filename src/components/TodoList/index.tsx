@@ -1,8 +1,10 @@
-import classes from "./index.module.css"
-import { TodoItem } from "../TodoItem"
-// import { TodoListProps } from "../../models/models"
-import { TodoPlus } from "../TodoPlus"
 import { useState } from "react"
+import classes from "./index.module.css"
+
+
+import { TodoItem } from "../TodoItem"
+import { TodoPlus } from "../TodoPlus"
+
 import { store } from '../../store/store'
 
 
@@ -16,17 +18,23 @@ export const TodoList = () => {
             title,
             completed: false
         }
-        setTodos([todo,...todos])
+        setTodos([...todos, todo])
     }
 
     const onEdited = (id: number, title: string) => {
         setTodos(
             todos.map(todo => {
-                    if(todo.id === id) {
-                        todo.title = title
-                    }
+                if(todo.id === id) {
+                    todo.title = title
+                }
                 return todo
             })
+        )
+    }
+
+    const removeTodo = (id: number) => {
+        setTodos(
+            todos.filter(todo => todo.id !== id)
         )
     }
 
@@ -38,7 +46,12 @@ export const TodoList = () => {
                 {
                     todos.map((todo) => {
                         return (
-                            <TodoItem key={todo.id} todo={todo} onEdited={onEdited} />
+                            <TodoItem 
+                                key={todo.id} 
+                                todo={todo} 
+                                onEdited={onEdited}
+                                removeTodo={removeTodo}
+                            />
                         )
                     })
                 }

@@ -6,9 +6,10 @@ import classes from "./index.module.css"
 interface TodoItemProps {
     todo: ITodo;
     onEdited: (id: number, title: string) => void;
+    removeTodo: (id: number) => void;
 }
 
-export const TodoItem: React.FC<TodoItemProps> = ({ todo, onEdited }) => {
+export const TodoItem: React.FC<TodoItemProps> = ({ todo, onEdited, removeTodo }) => {
 
     const [isEditMode, setIsEditMode] = useState(false)
     const [value, setValue] = useState(todo.title)
@@ -24,6 +25,7 @@ export const TodoItem: React.FC<TodoItemProps> = ({ todo, onEdited }) => {
             <input className={classes.checkbox} type="checkbox" />
             { isEditMode ? (
                 <input 
+                    className={classes.input}
                     type="text" 
                     value={value} 
                     onChange={(e) => setValue(e.target.value)} 
@@ -44,7 +46,7 @@ export const TodoItem: React.FC<TodoItemProps> = ({ todo, onEdited }) => {
                         <button className={classes.btn__edit} onClick={() => setIsEditMode(true)}></button>
                     )
                 }
-                <button className={classes.btn__remove}></button>
+                <button className={classes.btn__remove} onClick={()=>removeTodo(todo.id)}></button>
             </div>
         </li>
     )

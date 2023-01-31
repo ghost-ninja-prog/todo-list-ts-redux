@@ -5,6 +5,6 @@ export interface ITodo {
     completed: boolean;
 }
 
-export interface TodoListProps {
+export interface ITodoList {
     todos: Array<ITodo>
 }
