@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 import classes from './index.module.css'
 
@@ -16,7 +16,7 @@ export const TodoPlus: React.FC<ITodoPlusProps> = ({ addTodo }) => {
         setValue('')
     }
 
-    const onKeyDownInput = (event: any) => {
+    const onKeyDownInput = (event: React.KeyboardEvent<HTMLInputElement>) => {
         if(event.code === "Enter") {
             addTodo(value)
             setValue('')

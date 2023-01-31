@@ -6,7 +6,7 @@ import { useState } from "react"
 import { store } from '../../store/store'
 
 
-export const TodoList: React.FC = () => {
+export const TodoList = () => {
 
     const [todos, setTodos] = useState(store)
 
@@ -15,9 +15,19 @@ export const TodoList: React.FC = () => {
             id: Date.now(),
             title,
             completed: false
-
         }
         setTodos([todo,...todos])
+    }
+
+    const onEdited = (id: number, title: string) => {
+        setTodos(
+            todos.map(todo => {
+                    if(todo.id === id) {
+                        todo.title = title
+                    }
+                return todo
+            })
+        )
     }
 
     return (
@@ -28,7 +38,7 @@ export const TodoList: React.FC = () => {
                 {
                     todos.map((todo) => {
                         return (
-                            <TodoItem key={todo.id} todo={todo} />
+                            <TodoItem key={todo.id} todo={todo} onEdited={onEdited} />
                         )
                     })
                 }
