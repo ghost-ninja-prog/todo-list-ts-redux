@@ -1,16 +1,13 @@
-export const store = [
-    {
-        id: 1,
-        title: "Delo 1",
-        completed: false
-    },
-    {
-        id: 2,
-        title: "Delo 2",
-        completed: true
-    },{
-        id: 3,
-        title: "Delo 3",
-        completed: false
-    },
-]
+import { configureStore } from "@reduxjs/toolkit";
+import todoReducer from "./todoSlice";
+
+
+export const store = configureStore({
+    reducer: {
+        todos: todoReducer,
+    }
+})
+
+export type RootState = ReturnType<typeof store.getState>
+
+export type AppDispatch = typeof store.dispatch

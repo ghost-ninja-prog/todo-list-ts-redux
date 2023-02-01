@@ -1,24 +1,31 @@
 import React, { useState } from 'react'
 
+// import { useSelector, useDispatch } from 'react-redux'
+import { useAppDispatch } from '../../store/hooks'
+import { addTodo } from '../../store/todoSlice'
+
 import classes from './index.module.css'
 
 
-interface ITodoPlusProps {
-    addTodo: (title: string) => void
-}
+// interface ITodoPlusProps {
+//     addTodo: (title: string) => void
+// }
 
-export const TodoPlus: React.FC<ITodoPlusProps> = ({ addTodo }) => {
+export const TodoPlus = () => {
+
+    const dispatch = useAppDispatch()
+
 
     const [value, setValue] = useState('')
 
     const onClickHandler = () => {
-        addTodo(value)
+        dispatch(addTodo(value))
         setValue('')
     }
 
     const onKeyDownInput = (event: React.KeyboardEvent<HTMLInputElement>) => {
         if(event.code === "Enter") {
-            addTodo(value)
+            dispatch(addTodo(value))
             setValue('')
         }
     }

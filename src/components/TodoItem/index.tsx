@@ -1,15 +1,19 @@
 import { useState } from "react"
 import { ITodo } from "../../models/models"
+import { useAppDispatch } from "../../store/hooks";
+import { removeTodo } from "../../store/todoSlice";
 import classes from "./index.module.css"
 
 
 interface TodoItemProps {
     todo: ITodo;
     onEdited: (id: number, title: string) => void;
-    removeTodo: (id: number) => void;
 }
 
-export const TodoItem: React.FC<TodoItemProps> = ({ todo, onEdited, removeTodo }) => {
+export const TodoItem: React.FC<TodoItemProps> = ({ todo, onEdited }) => {
+
+    const dispatch = useAppDispatch()
+
 
     const [isEditMode, setIsEditMode] = useState(false)
     const [value, setValue] = useState(todo.title)
@@ -46,7 +50,7 @@ export const TodoItem: React.FC<TodoItemProps> = ({ todo, onEdited, removeTodo }
                         <button className={classes.btn__edit} onClick={() => setIsEditMode(true)}></button>
                     )
                 }
-                <button className={classes.btn__remove} onClick={()=>removeTodo(todo.id)}></button>
+                <button className={classes.btn__remove} onClick={()=>dispatch(removeTodo(todo.id))}></button>
             </div>
         </li>
     )
