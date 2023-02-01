@@ -21,6 +21,15 @@ export const TodoList = () => {
         setTodos([...todos, todo])
     }
 
+    // const addTodo = (title) => {
+    //     const todo = {
+    //         id: Date.now(),
+    //         title,
+    //         completed: false
+    //     }
+    //     store.dispatch(addTodo(todo))
+    // }
+
     const onEdited = (id: number, title: string) => {
         setTodos(
             todos.map(todo => {
